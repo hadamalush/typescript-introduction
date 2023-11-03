@@ -17,12 +17,12 @@ export default function App() {
 
 	const [goals, setGoals] = useState<Goal[]>([]);
 
-	const handleAddGoal = () => {
+	const handleAddGoal = (goal: string, desc: string) => {
 		setGoals(prevGoals => {
 			const newGoal: Goal = {
 				id: Math.random(),
-				title: "My trips to the cosmos",
-				description: "Learn it in depth!",
+				title: goal,
+				description: desc,
 			};
 
 			return [...prevGoals, newGoal];
@@ -37,9 +37,9 @@ export default function App() {
 		<main>
 			<Header image={{ src: goalsImg, alt: "A list of goals" }}>
 				<h1>Your Course Goals</h1>
-				<button onClick={handleAddGoal}>Add Goal</button>
+				{/* <button onClick={handleAddGoal}>Add Goal</button> */}
 			</Header>
-			<NewGoal />
+			<NewGoal onAddGoal={handleAddGoal} />
 			<GoalList goals={goals} onDeleteGoal={handleDelete} />
 		</main>
 	);
