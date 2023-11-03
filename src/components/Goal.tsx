@@ -8,9 +8,13 @@ import { type FC, type PropsWithChildren } from "react";
 // 	children: ReactNode; // ReactNode for JSX elements
 // }
 
-type GoalProps = PropsWithChildren<{ title: string }>;
+type GoalProps = PropsWithChildren<{
+	id: number;
+	title: string;
+	onDelete: (id: number) => void;
+}>;
 
-const Goal: FC<GoalProps> = ({ title, children }) => {
+const Goal: FC<GoalProps> = ({ id, title, onDelete, children }) => {
 	//defined destruction and after colon defined types
 	return (
 		<article>
@@ -18,7 +22,7 @@ const Goal: FC<GoalProps> = ({ title, children }) => {
 				<h2>{title}</h2>
 				{children}
 			</div>
-			<button>Delete</button>
+			<button onClick={() => onDelete(id)}>Delete</button>
 		</article>
 	);
 };
