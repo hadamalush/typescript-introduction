@@ -1,4 +1,5 @@
 import { type FC, type PropsWithChildren } from "react";
+
 //good practise is add type before ReactNode
 
 //import { type PropsWithChildren, type ReactNode } from "react";
@@ -7,9 +8,9 @@ import { type FC, type PropsWithChildren } from "react";
 // 	children: ReactNode; // ReactNode for JSX elements
 // }
 
-type MyGoalsProps = PropsWithChildren<{ title: string }>;
+type GoalProps = PropsWithChildren<{ title: string }>;
 
-const MyGoal: FC<MyGoalsProps> = ({ title, children }) => {
+const Goal: FC<GoalProps> = ({ title, children }) => {
 	//defined destruction and after colon defined types
 	return (
 		<article>
@@ -22,7 +23,7 @@ const MyGoal: FC<MyGoalsProps> = ({ title, children }) => {
 	);
 };
 
-export default MyGoal;
+export default Goal;
 
 //SECOND APPROACH
 // const MyGoal = ({ title, children }: MyGoalsProps) => {
